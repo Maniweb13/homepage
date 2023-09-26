@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Discussion Forum</title>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" type="text/css" href="styles.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="print.css" media="print" />
+    <style>
+        /* CSS to adjust the size of the icon */
+        .subHeader img {
+            width: 20px; /* Adjust the width as needed */
+            height: 20px; /* Adjust the height as needed */
+        }
+
+        /* CSS to style the dropdown menu */
+        .category-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .category-dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .category-dropdown:hover .category-dropdown-content {
+            display: block;
+        }
+
+        .category-dropdown-content a {
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .category-dropdown-content a:hover {
+            background-color: #ddd;
+        }
+
+        /* CSS for the search bar */
+        #search-bar {
+            display: none;
+            position: absolute;
+            top: 50px; /* Adjust the top position as needed */
+            left: 20px; /* Adjust the left position as needed */
+            width: 200px; /* Adjust the width as needed */
+            border: 1px solid #ccc;
+            background-color: #fff;
+            padding: 5px;
+            z-index: 2;
+        }
+    </style>
+</head>
+<body>
+<div id="top"><a href="#main-copy" class="doNotDisplay doNotPrint">Skip to main content.</a></div>
+<div id="header">
+    <h1 class="headerTitle"> <a href="#">Discussion Forum</a> </h1>
+    <div class="subHeader">
+        <span class="doNotDisplay">Navigation: </span>
+        <a href="#"><img src="images/home.png" alt="home" title="home" /></a>
+        
+        <div class="category-dropdown">
+            <a href="#home"><img src="images/category.png" alt="Categories" title="Categories" /></a>
+            <div class="category-dropdown-content">
+                <a href="#">Category 1</a>
+                <a href="#">Category 2</a>
+                <a href="#">Category 3</a>
+                <a href="#">Category 4</a>
+                <a href="#">Category 5</a>
+                <a href="#">Category 6</a>
+                <a href="#">Category 7</a>
+                <a href="#">Category 8</a>
+                <a href="#">Category 9</a>
+                <a href="#">Category 10</a>
+            </div>
+        </div>
+        
+        <a href="#" onclick="toggleSearchBar()"><img src="images/serach.png" alt="Search" title="Search" /></a>
+        
+        <div id="search-bar">
+            <input type="text" placeholder="Search...">
+        </div>
+        
+        <a href="#"><img src="images/login.png" alt="Login" title="Login" /></a>
+        <a href="#"><img src="images/register.png" alt="Register" title="Register" /></a>
+    </div>
+</div>
+<div id="side-bar">
+    <!-- ##### Left Sidebar ##### -->
+    <div class="leftSideBar">
+        <p class="sideBarTitle">Forum Navigation</p>
+        <ul>
+            <li><a href="#introduction">Forum Categories</a></li>
+            <li><a href="#general-discussion">General Discussion</a></li>
+            <li><a href="#web-development">Web Development</a></li>
+            <!-- Add more category links as needed -->
+        </ul>
+    </div>
+</div>
+<div id="main-copy">
+    <h1 id="introduction" style="border-top: none; padding-top: 0;">Forum Categories</h1>
+    <!-- Category: General Discussion -->
+    <div id="general-discussion" class="category">
+        <h2 class="category-title">General Discussion</h2>
+        <!-- Topic: How to Create a Forum Layout? -->
+        <div class="topic">
+            <div class="topic-info">
+                <span class="topic-author">User123</span>
+                <span class="topic-date">Posted on September 26, 2023</span>
+            </div>
+            <h3 class="topic-title"><a href="#">How to Create a Forum Layout?</a></h3>
+            <div class="topic-content">
+                <p>This is a discussion about creating a forum layout. What are the best practices? Share your tips and tricks!</p>
+            </div>
+            <div class="topic-actions">
+                <a href="#">Reply</a> | <a href="#">Report</a>
+            </div>
+        </div>
+        <!-- Topic: Choosing the Right Forum Software -->
+        <div class="topic">
+            <div class="topic-info">
+                <span class="topic-author">User456</span>
+                <span class="topic-date">Posted on September 25, 2023</span>
+            </div>
+            <h3 class="topic-title"><a href="#">Choosing the Right Forum Software</a></h3>
+            <div class="topic-content">
+                <p>Let's discuss the various forum software options available and how to choose the right one for your needs.</p>
+            </div>
+            <div class="topic-actions">
+                <a href="#">Reply</a> | <a href="#">Report</a>
+            </div>
+        </div>
+    </div>
+    <!-- Category: Web Development -->
+    <div id="web-development" class="category">
+        <h2 class="category-title">Web Development</h2>
+        <!-- Topic: Responsive Design Techniques -->
+        <div class="topic">
+            <div class="topic-info">
+                <span class="topic-author">User789</span>
+                <span class="topic-date">Posted on September 24, 2023</span>
+            </div>
+            <h3 class="topic-title"><a href="#">Responsive Design Techniques</a></h3>
+            <div class="topic-content">
+                <p>Share your favorite responsive design techniques and tools for creating mobile-friendly websites.</p>
+            </div>
+            <div class="topic-actions">
+                <a href="#">Reply</a> | <a href="#">Report</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer">
+    <div class="doNotPrint">
+        <a href="#">Contact Us</a> | <a href="#">Privacy Policy</a>  | <a href="#">Feedback</a> | <a href="#">Help</a>
+    </div>
+    <div> Copyright &copy; 2023, Discussion Forum </div>
+</div>
+<script>
+    function toggleSearchBar() {
+        var searchBar = document.getElementById("search-bar");
+        if (searchBar.style.display === "block") {
+            searchBar.style.display = "none";
+        } else {
+            searchBar.style.display = "block";
+        }
+    }
+</script>
+</body>
+</html>
